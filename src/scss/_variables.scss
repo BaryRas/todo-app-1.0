@@ -1,0 +1,43 @@
+$theme-colors: (
+  "primary": #f9aa33,
+  "secondary": #344955,
+  "success": #18b0b0,
+  "warning": #f2a51a,
+  "danger": #dd2c00,
+);
+
+$secondary: #344955;
+$info: #1d1d1d;
+$link-color: $secondary;
+
+$table-dark-color: #cbcbcb;
+$table-dark-bg: #1d1d1d;
+
+$border-radius: 0;
+$border-radius-lg: 0;
+$border-radius-sm: 0;
+
+// $link-color: #344955;
+$link-hover-decoration: none;
+
+// Include Bootstrap and BootstrapVue SCSS files
+@import "~bootstrap/scss/bootstrap.scss";
+
+// Light Mode
+$--background: #d2dbe0;
+$--surface: #fff;
+$--primary: #344955;
+$--secondary: #f9aa33;
+$--onBackground: #020103;
+$--onSurface: #232f34;
+$--onPrimary: #fff;
+$--onSurfaceSecondary: #4a6572;
+
+// Dark Mode
+$--background-dark: #121212;
+$--surface-dark: #1d1d1d;
+$--primary-dark: #de7119;
+$--secondary-dark: #c06c84;
+$--onBackground-dark: #cbcbcb;
+$--onSurface-dark: #7b7b7b;
+$--onPrimary-dark: #020103;

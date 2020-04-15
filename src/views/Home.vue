@@ -1,18 +1,49 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <b-container class="home">
+    <h3 :class="[this.$store.state.darkMode ? 'dark' : '']">
+      Welcome to your favorite Todo-App
+    </h3>
+    <add-todos />
+    <tabs-app :todos="AllItems"></tabs-app>
+  </b-container>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import { mapState, mapGetters } from "vuex";
+import AddTodos from "@/components/AddTodos.vue";
+import Tabs from "@/components/Tabs.vue";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    HelloWorld
-  }
-}
+    "add-todos": AddTodos,
+    "tabs-app": Tabs,
+  },
+  data() {
+    return {
+      hash: this.$route.params.id,
+    };
+  },
+  computed: {
+    ...mapState(["todos"]),
+    ...mapGetters(["AllItems"]),
+  },
+  watch: {
+    $route(to, from) {
+      this.id = to.params.id; // go to this params id (change my component)
+    },
+  },
+};
 </script>
+
+<style scoped lang="scss">
+@import "@/scss/_variables.scss";
+
+h3 {
+  margin: 40px 0;
+}
+.dark {
+  color: $--onSurface-dark;
+}
+</style>
